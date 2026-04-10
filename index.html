@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESZ</title>
+<title>Для Назерке</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -33,6 +33,7 @@ function resize() {
 
 resize()
 
+// Количество надписей на контуре сердца
 for (let i = 0; i < 100; i++) {
   objects.push({ t: i * (Math.PI * 2 / 100) })
 }
@@ -54,15 +55,18 @@ function heart(t) {
 }
 
 function animate() {
+  // Цвет фона (темно-синий)
   ctx.fillStyle = "#011735"
   ctx.fillRect(0, 0, canvas.width, canvas.height)
 
   const fontSize = Math.max(10, Math.min(canvas.width, canvas.height) * 0.025)
 
   for (let obj of objects) {
-    obj.t += 0.0028
+    // Скорость анимации уменьшена до 0.001
+    obj.t += 0.001 
     const pos = heart(obj.t)
 
+    // Цвет текста (розовый)
     ctx.fillStyle = "#ff4d6d"
     ctx.font = `bold ${fontSize}px Georgia`
     ctx.textAlign = "center"
